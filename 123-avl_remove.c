@@ -8,7 +8,7 @@
  * This function removes a node with the specified value from the AVL tree
  * and rebalances the tree if necessary.
  *
- * Returns: Pointer to the root of the updated AVL tree.
+ * Return: Pointer to the root of the updated AVL tree.
  *
  */
 avl_t *avl_remove(avl_t *root, int value)
@@ -29,8 +29,8 @@ avl_t *avl_remove(avl_t *root, int value)
  * If a node with the given value exists in the tree, it will be removed while
  * maintaining the binary search tree properties.
  *
- * @param root  A pointer to the root of the binary search tree.
- * @param value The value to be removed from the tree, if it exists.
+ * @root:  A pointer to the root of the binary search tree.
+ * @value: The value to be removed from the tree, if it exists.
  *
  * Return: A pointer to the root of the modified tree after removal.
  */
