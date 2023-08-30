@@ -1,69 +1,54 @@
 #include "binary_trees.h"
 
 /**
- * avl_remove - Removes a node with a specific value from an AVL tree.
- * @root: Pointer to the root of the AVL tree.
- * @value: Value to be removed from the AVL tree.
- *
- * This function removes a node with the specified value from the AVL tree
- * and rebalances the tree if necessary.
- *
- * Return: Pointer to the root of the updated AVL tree.
- *
+ * bal - Measures balance factor of a AVL
+ * @tree: tree to go through
+ * Return: balanced factor
  */
-avl_t *avl_remove(avl_t *root, int value)
+void bal(avl_t **tree)
 {
-	avl_t *root_a = (avl_t *) bst_remove((bst_t *) root, value);
+	int bval;
 
-	if (root_a == NULL)
-		return (NULL);
-	bal(&root_a);
-
-	return (root_a);
+	if (tree == NULL || *tree == NULL)
+		return;
+	if ((*tree)->left == NULL && (*tree)->right == NULL)
+		return;
+	bal(&(*tree)->left);
+	bal(&(*tree)->right);
+	bval = binary_tree_balance((const binary_tree_t *)*tree);
+	if (bval > 1)
+		*tree = binary_tree_rotate_right((binary_tree_t *)*tree);
+	else if (bval < -1)
+		*tree = binary_tree_rotate_left((binary_tree_t *)*tree);
 }
-
 /**
- * bst_remove - Remove a node with specified value from a binary search tree.
- *
- * Function takes the root of a binary search tree and a value to be removed.
- * If a node with the given value exists in the tree, it will be removed while
- * maintaining the binary search tree properties.
- *
- * @root:  A pointer to the root of the binary search tree.
- * @value: The value to be removed from the tree, if it exists.
- *
- * Return: A pointer to the root of the modified tree after removal.
+ * successor - get the next successor i mean the min node in the right subtree
+ * @node: tree to check
+ * Return: the min value of this tree
  */
-bst_t *bst_remove(bst_t *root, int value)
+int successor(bst_t *node)
 {
-	int type = 0;
+	int left = 0;
 
-	if (root == NULL)
-		return (NULL);
-	if (value < root->n)
-		bst_remove(root->left, value);
-	else if (value > root->n)
-		bst_remove(root->right, value);
-	else if (value == root->n)
+	if (node == NULL)
 	{
-		type = remove_type(root);
-		if (type != 0)
-			bst_remove(root->right, type);
+		return (0);
 	}
 	else
-		return (NULL);
-	return (root);
-}
+	{
+		left = successor(node->left);
+		if (left == 0)
+		{
+			return (node->n);
+		}
+		return (left);
+	}
 
+}
 /**
- * remove_type -  Removes a node of a specific type from a binary search tree.
- * @root: Pointer to the root node of the binary search tree.
- *
- * This function removes a node of a specific type from the binary search tree
- * rooted at 'root'. It returns an integer value indicating success (0) or
- * failure (-1).
- *
- * Return: 0 if it has no children or other value if it has
+ *remove_type - function that removes a node depending of its children
+ *@root: node to remove
+ *Return: 0 if it has no children or other value if it has
  */
 int remove_type(bst_t *root)
 {
@@ -106,57 +91,45 @@ int remove_type(bst_t *root)
 		return (new_value);
 	}
 }
-
 /**
- * successor - Find the successor node in a binary search tree.
- * @node: Pointer to the node for which to find the successor.
- *
- * This function finds the inorder successor of the given node in a binary
- * search tree.
- *
- * Return: Pointer to the inorder successor node, or NULL if no successor
- *         exists for the given node.
+ * bst_remove - function that removes a node from a BST tree
+ * @root: root of the tree
+ * @value: value to remove in the tree
+ * Return:  the tree after removing the desired value, and after rebalancing
  */
-int successor(bst_t *node)
+bst_t *bst_remove(bst_t *root, int value)
 {
-	int left = 0;
+	int type = 0;
 
-	if (node == NULL)
+	if (root == NULL)
+		return (NULL);
+	if (value < root->n)
+		bst_remove(root->left, value);
+	else if (value > root->n)
+		bst_remove(root->right, value);
+	else if (value == root->n)
 	{
-		return (0);
+		type = remove_type(root);
+		if (type != 0)
+			bst_remove(root->right, type);
 	}
 	else
-	{
-		left = successor(node->left);
-		if (left == 0)
-		{
-			return (node->n);
-		}
-		return (left);
-	}
+		return (NULL);
+	return (root);
 }
 
 /**
- * bal - Perform AVL tree balancing.
- * @tree: Pointer to the root of the AVL tree.
- *
- * This function performs AVL tree balancing to maintain the AVL property.
- *
- * Return: Balanced factor.
+ * avl_remove - function that removes a node from an AVL tree
+ * @root: pointer to the root node of the tree for removing a node
+ * @value: value to remove in the tree
+ * Return: node of the tree after removing the desired value
  */
-void bal(avl_t **tree)
+avl_t *avl_remove(avl_t *root, int value)
 {
-	int bval;
+	avl_t *root_a = (avl_t *) bst_remove((bst_t *) root, value);
 
-	if (tree == NULL || *tree == NULL)
-		return;
-	if ((*tree)->left == NULL && (*tree)->right == NULL)
-		return;
-	bal(&(*tree)->left);
-	bal(&(*tree)->right);
-	bval = binary_tree_balance((const binary_tree_t *)*tree);
-	if (bval > 1)
-		*tree = binary_tree_rotate_right((binary_tree_t *)*tree);
-	else if (bval < -1)
-		*tree = binary_tree_rotate_left((binary_tree_t *)*tree);
+	if (root_a == NULL)
+		return (NULL);
+	bal(&root_a);
+	return (root_a);
 }
