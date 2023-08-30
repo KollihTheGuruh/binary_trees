@@ -31,7 +31,6 @@ avl_t *aux_sort(avl_t *parent, int *array, int begin, int last)
  * @array: sorted array
  * @size: size of the sorted array
  * Return: pointer to the root node of the created AVL tree, or NULL on fail
-
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
