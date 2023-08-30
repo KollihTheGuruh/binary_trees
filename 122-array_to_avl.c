@@ -16,11 +16,11 @@ avl_t *array_to_avl(int *array, size_t size)
 	if (array == NULL)
 		return (NULL);
 
-	for (i = 0; x < size; x++)
+	for (x = 0; x < size; x++)
 	{
 		for (y = 0; y < x; y++)
 		{
-			if (array[j] == array[x])
+			if (array[y] == array[x])
 				break;
 		}
 		if (y == x)
