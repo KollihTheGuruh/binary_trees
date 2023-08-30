@@ -40,7 +40,8 @@ int croos_tree(binary_tree_t *root, binary_tree_t *node)
 	return (0);
 }
 /**
- * binary_tree_is_bst - function that checks if a binary tree is a valid Binary Search Tree
+ * binary_tree_is_bst - function that checks if
+ * a binary tree is a valid Binary Search Tree
  * @tree: tre to check
  * Return: 1 if is bst 0 if not
  */
