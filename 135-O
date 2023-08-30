@@ -1,3 +1,3 @@
-O(log n)
-O(log n)
-O(n)
+O(log n) /* Inserting the value n */
+O(log n) /* Extracting the root node */
+O(n) /* Searching for a node in a binary heap of size n */
