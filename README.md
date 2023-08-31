@@ -287,3 +287,16 @@ Where tree is a pointer to the root node of the BST to search
 And value is the value to search in the tree
 Your function must return a pointer to the node containing a value equals to value
 If tree is NULL or if nothing is found, your function must return NULL
+
+28. BST - Remove
+#advanced
+Write a function that removes a node from a Binary Search Tree
+
+Prototype: bst_t *bst_remove(bst_t *root, int value);
+Where root is a pointer to the root node of the tree where you will remove a node
+And value is the value to remove in the tree
+Once located, the node containing a value equals to value must be removed and freed
+If the node to be deleted has two children, it must be replaced with its first in-order successor (not predecessor)
+Your function must return a pointer to the new root node of the tree after removing the desired value
+
+
