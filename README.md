@@ -239,3 +239,20 @@ Write a function that performs a right-rotation on a binary tree
 Prototype: binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 Where tree is a pointer to the root node of the tree to rotate
 Your function must return a pointer to the new root node of the tree once rotated
+
+24. Is BST
+#advanced
+Write a function that checks if a binary tree is a valid Binary Search Tree
+
+Prototype: int binary_tree_is_bst(const binary_tree_t *tree);
+Where tree is a pointer to the root node of the tree to check
+Your function must return 1 if tree is a valid BST, and 0 otherwise
+If tree is NULL, return 0
+Properties of a Binary Search Tree:
+
+The left subtree of a node contains only nodes with values less than the node’s value
+The right subtree of a node contains only nodes with values greater than the node’s value
+The left and right subtree each must also be a binary search tree
+There must be no duplicate values
+
+
