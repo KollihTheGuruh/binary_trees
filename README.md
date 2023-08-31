@@ -83,3 +83,14 @@ Prototype: int binary_tree_is_root(const binary_tree_t *node);
 Where node is a pointer to the node to check
 Your function must return 1 if node is a root, otherwise 0
 If node is NULL, return 0
+
+6. Pre-order traversal
+mandatory
+Write a function that goes through a binary tree using pre-order traversal
+
+Prototype: void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));
+Where tree is a pointer to the root node of the tree to traverse
+And func is a pointer to a function to call for each node. The value in the node must be passed as a parameter to this function.
+If tree or func is NULL, do nothing
+
+
