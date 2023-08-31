@@ -299,4 +299,142 @@ Once located, the node containing a value equals to value must be removed and fr
 If the node to be deleted has two children, it must be replaced with its first in-order successor (not predecessor)
 Your function must return a pointer to the new root node of the tree after removing the desired value
 
+29. Big O #BST
+#advanced
+What are the average time complexities of those operations on a Binary Search Tree (one answer per line):
+
+Inserting the value n
+Removing the node with the value n
+Searching for a node in a BST of size n
+
+30. Is AVL
+#advanced
+Write a function that checks if a binary tree is a valid AVL Tree
+
+Prototype: int binary_tree_is_avl(const binary_tree_t *tree);
+Where tree is a pointer to the root node of the tree to check
+Your function must return 1 if tree is a valid AVL Tree, and 0 otherwise
+If tree is NULL, return 0
+Properties of an AVL Tree:
+
+An AVL Tree is a BST
+The difference between heights of left and right subtrees cannot be more than one
+The left and right subtrees must also be AVL trees
+
+31. AVL - Insert
+#advanced
+Write a function that inserts a value in an AVL Tree
+
+Prototype: avl_t *avl_insert(avl_t **tree, int value);
+Where tree is a double pointer to the root node of the AVL tree for inserting the value
+And value is the value to store in the node to be inserted
+Your function must return a pointer to the created node, or NULL on failure
+If the address stored in tree is NULL, the created node must become the root node.
+The resulting tree after insertion, must be a balanced AVL Tree
+Your files 14-binary_tree_balance.c, 103-binary_tree_rotate_left.c, 104-binary_tree_rotate_right.c and 0-binary_tree_node.c will be compiled during the correction
+
+32. AVL - Array to AVL
+#advanced
+Write a function that builds an AVL tree from an array
+
+Prototype: avl_t *array_to_avl(int *array, size_t size);
+Where array is a pointer to the first element of the array to be converted
+And size is the number of element in the array
+Your function must return a pointer to the root node of the created AVL tree, or NULL on failure
+If a value of the array is already present in the tree, this value must be ignored
+Your files 121-avl_insert.c, 0-binary_tree_node.c, 14-binary_tree_balance.c, 103-binary_tree_rotate_left.c and 104-binary_tree_rotate_right.c will be compiled during the correction
+
+33. AVL - Remove
+#advanced
+Write a function that removes a node from an AVL tree
+
+Prototype: avl_t *avl_remove(avl_t *root, int value);
+Where root is a pointer to the root node of the tree for removing a node
+And value is the value to remove in the tree
+Once located, the node containing a value equals to value must be removed and freed
+If the node to be deleted has two children, it must be replaced with its first in-order successor (not predecessor)
+After deletion of the desired node, the tree must be rebalanced if necessary
+Your function must return a pointer to the new root node of the tree after removing the desired value, and after rebalancing
+Your files 14-binary_tree_balance.c, 103-binary_tree_rotate_left.c and 104-binary_tree_rotate_right.c will be compiled during the correction
+
+34. AVL - From sorted array
+#advanced
+Write a function that builds an AVL tree from an array
+
+Prototype: avl_t *sorted_array_to_avl(int *array, size_t size);
+Where array is a pointer to the first element of the array to be converted
+And size is the number of element in the array
+Your function must return a pointer to the root node of the created AVL tree, or NULL on failure
+You can assume there will be no duplicate value in the array
+You are not allowed to rotate
+You can only have 2 functions in your file
+Your file 0-binary_tree_node.c will be compiled during the correction
+
+35. Big O #AVL Tree
+#advanced
+What are the average time complexities of those operations on an AVL Tree (one answer per line):
+
+Inserting the value n
+Removing the node with the value n
+Searching for a node in an AVL tree of size n
+
+36. Is Binary heap
+#advanced
+Write a function that checks if a binary tree is a valid Max Binary Heap
+
+Prototype: int binary_tree_is_heap(const binary_tree_t *tree);
+Where tree is a pointer to the root node of the tree to check
+Your function must return 1 if tree is a valid Max Binary Heap, and 0 otherwise
+If tree is NULL, return 0
+Properties of a Max Binary Heap:
+
+It’s a complete tree
+In a Max Binary Heap, the value at root must be maximum among all values present in Binary Heap
+The last property must be recursively true for all nodes in Binary Tree
+
+37. Heap - Insert
+#advanced
+Write a function that inserts a value in Max Binary Heap
+
+Prototype: heap_t *heap_insert(heap_t **root, int value)
+Where root is a double pointer to the root node of the Heap to insert the value
+And value is the value to store in the node to be inserted
+Your function must return a pointer to the created node, or NULL on failure
+If the address stored in root is NULL, the created node must become the root node.
+You have to respect a Max Heap ordering
+You are allowed to have up to 6 functions in your file
+Your file 0-binary_tree_node.c will be compiled during the correction
+
+38. Heap - Array to Binary Heap
+#advanced
+Write a function that builds a Max Binary Heap tree from an array
+
+Prototype: heap_t *array_to_heap(int *array, size_t size);
+Where array is a pointer to the first element of the array to be converted
+And size is the number of element in the array
+Your function must return a pointer to the root node of the created Binary Heap, or NULL on failure
+Your files 131-heap_insert.c and 0-binary_tree_node.c will be compiled during the correction
+
+39. Heap - Extract
+#advanced
+Write a function that extracts the root node of a Max Binary Heap
+
+Prototype: int heap_extract(heap_t **root);
+Where root is a double pointer to the root node of heap
+Your function must return the value stored in the root node
+The root node must be freed and replace with the last level-order node of the heap
+Once replaced, the heap must be rebuilt if necessary
+If your function fails, return 0
+
+40. Heap - Sort
+#advanced
+Write a function that converts a Binary Max Heap to a sorted array of integers
+
+Prototype: int *heap_to_sorted_array(heap_t *heap, size_t *size);
+Where heap is a pointer to the root node of the heap to convert
+And size is an address to store the size of the array
+You can assume size is a valid address
+Since we are using Max Heap, the returned array must be sorted in descending order
+Your file 133-heap_extract.c will be compile during the correction
+
 
