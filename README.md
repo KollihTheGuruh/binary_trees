@@ -206,3 +206,14 @@ Where first is a pointer to the first node
 And second is a pointer to the second node
 Your function must return a pointer to the lowest common ancestor node of the two given nodes
 If no common ancestor was found, your function must return NULL
+
+20. Level-order traversal
+#advanced
+Write a function that goes through a binary tree using level-order traversal
+
+Prototype: void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+Where tree is a pointer to the root node of the tree to traverse
+And func is a pointer to a function to call for each node. The value in the node must be passed as a parameter to this function.
+If tree or func is NULL, do nothing
+
+
