@@ -2,6 +2,7 @@ binary_trees
 by Michael Mutinda and Annah Njuguna
 
 General
+
 What is a binary tree
 What is the difference between a binary tree and a Binary Search Tree
 What is the possible gain in terms of time complexity compared to linked lists
