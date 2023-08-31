@@ -437,4 +437,10 @@ You can assume size is a valid address
 Since we are using Max Heap, the returned array must be sorted in descending order
 Your file 133-heap_extract.c will be compile during the correction
 
+41. Big O #Binary Heap
+#advanced
+What are the average time complexities of those operations on a Binary Heap (one answer per line):
 
+Inserting the value n
+Extracting the root node
+Searching for a node in a binary heap of size n
