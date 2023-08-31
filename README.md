@@ -216,4 +216,10 @@ Where tree is a pointer to the root node of the tree to traverse
 And func is a pointer to a function to call for each node. The value in the node must be passed as a parameter to this function.
 If tree or func is NULL, do nothing
 
+21. Is complete
+#advanced
+Write a function that checks if a binary tree is complete
 
+Prototype: int binary_tree_is_complete(const binary_tree_t *tree);
+Where tree is a pointer to the root node of the tree to check
+If tree is NULL, your function must return 0
